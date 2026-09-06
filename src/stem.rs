@@ -3,7 +3,8 @@
 use alloc::borrow::Cow;
 use alloc::string::String;
 use alloc::vec::Vec;
-use pizza_engine::analysis::{Token, TokenFilter};
+use pizza_engine::analysis::Token;
+use pizza_engine::analysis::TokenFilter;
 
 /// Dutch light stemmer — removes common Dutch suffixes.
 ///
@@ -83,7 +84,8 @@ fn stem_dutch(word: &str) -> Option<String> {
         // Handle doubled consonant: "katten" → "katt" → "kat"
         let bytes = s.as_bytes();
         let blen = bytes.len();
-        if blen >= 2 && bytes[blen - 1] == bytes[blen - 2] && bytes[blen - 1].is_ascii_alphabetic() {
+        if blen >= 2 && bytes[blen - 1] == bytes[blen - 2] && bytes[blen - 1].is_ascii_alphabetic()
+        {
             s.truncate(blen - 1);
         }
         return Some(s);

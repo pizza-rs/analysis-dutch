@@ -4,12 +4,16 @@ use alloc::boxed::Box;
 use alloc::vec;
 use alloc::vec::Vec;
 
-use pizza_engine::analysis::{
-    Analyzer, AnalysisFactory, LowercaseNormalizer, Normalizer, StandardTokenizer, TokenFilter,
-    Tokenizer,
-};
+use pizza_engine::analysis::AnalysisFactory;
+use pizza_engine::analysis::Analyzer;
+use pizza_engine::analysis::LowercaseNormalizer;
+use pizza_engine::analysis::Normalizer;
+use pizza_engine::analysis::StandardTokenizer;
+use pizza_engine::analysis::TokenFilter;
+use pizza_engine::analysis::Tokenizer;
 
-use crate::{DutchStemFilter, DutchStopFilter};
+use crate::DutchStemFilter;
+use crate::DutchStopFilter;
 
 /// Register Dutch token filters and the `"dutch"` analyzer.
 pub fn register_all(factory: &mut AnalysisFactory) {
